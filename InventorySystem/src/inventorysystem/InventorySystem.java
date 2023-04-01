@@ -10,6 +10,8 @@ package inventorysystem;
  */
 import java.awt.*;
 import java.awt.event.*;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.*;
 
 public class InventorySystem extends JFrame {
@@ -110,6 +112,16 @@ public class InventorySystem extends JFrame {
 
         inventory += item + "\t" + quantity + "\t$" + price + "\n";
         inventoryArea.setText(inventory);
+           SMSAPI smsapi = new SMSAPI();
+
+        String smsMessage = inventory + "has been added";
+        System.out.println("******************testing sms***********************");
+        try {
+            //function to trigger sms
+            smsapi.sendSms(smsMessage);
+        } catch (Exception ex) {
+            Logger.getLogger(InventorySystem.class.getName()).log(Level.SEVERE, null, ex);
+        }
         clearFields();
     }
 
