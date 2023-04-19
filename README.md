@@ -1,4 +1,4 @@
-# inventorysystem_java_swing
+# inventory system
 
 ```
 example code to learn java swing
